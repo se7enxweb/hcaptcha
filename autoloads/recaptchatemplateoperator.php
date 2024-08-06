@@ -23,7 +23,8 @@ class reCAPTCHATemplateOperator {
 	
 	var $Operators;
 
-	function reCAPTCHATemplateOperator()
+        function __construct()
+        // function reCAPTCHATemplateOperator()
 	{
 		$this->Operators = array( 'recaptcha_get_html' );
 	}
@@ -51,11 +52,12 @@ class reCAPTCHATemplateOperator {
 		switch( $operatorName )
 		{
 			case 'recaptcha_get_html':
-		    include_once( 'extension/recaptcha/classes/recaptchalib.php' );
+       include_once( 'extension/recaptcha/classes/recaptchalib.php' );
 
         // Retrieve the reCAPTCHA public key from the ini file                              
         $ini = eZINI::instance( 'recaptcha.ini' );
         $key = $ini->variable( 'Keys', 'PublicKey' );
+
         if ( is_array($key) )
         {
           $hostname = eZSys::hostname();
@@ -70,13 +72,14 @@ class reCAPTCHATemplateOperator {
         // return nothing so that no captcha is displayed
         $currentUser = eZUser::currentUser();
         $accessAllowed = $currentUser->hasAccessTo( 'recaptcha', 'bypass_captcha' );
+
         if ($accessAllowed["accessWord"] == 'yes')
         {
           $operatorValue = 'User bypasses CAPTCHA';
         }
         else
         {
-          // Run the HTML generation code from the reCAPTCHA PHP library 
+             // Run the HTML generation code from the reCAPTCHA PHP library
              if( $_SERVER['SERVER_PORT'] == 443 )
              {
                  $operatorValue = recaptcha_get_html( $key, '', true );
@@ -94,4 +97,3 @@ class reCAPTCHATemplateOperator {
 };
 
 ?>
-

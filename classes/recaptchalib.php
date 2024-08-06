@@ -32,6 +32,8 @@
  * THE SOFTWARE.
  */
 
+require_once 'extension/recaptcha/classes/recaptcha/src/ReCaptcha/ReCaptcha.php';
+
 /**
  * The reCAPTCHA server URL's
  */
@@ -161,7 +163,7 @@ function recaptcha_check_answer ($privatekey, $remoteip, $challenge, $response, 
 	if ($remoteip == null || $remoteip == '') {
 		die ("For security reasons, you must pass the remote ip to reCAPTCHA");
 	}
-	
+
         // Discard spam submissions
 
         $recaptcha = new \ReCaptcha\ReCaptcha( $privatekey );
@@ -170,15 +172,18 @@ function recaptcha_check_answer ($privatekey, $remoteip, $challenge, $response, 
 
         if ( $resp->isSuccess() )
         {
-            $recaptcha_response->is_valid = true;
+            //$recaptcha_response->is_valid = true;
+            $resp->is_valid = true;
         }
         else
         {
-            $recaptcha_response->is_valid = false;
-            $recaptcha_response->error = $resp->error-codes;
+            //$recaptcha_response->is_valid = false;
+            //$resp->is_valid = false;
+            //$recaptcha_response->error = $resp->error-codes;
+            //$resp->error = $resp->error-codes;
         }
 
-        return $recaptcha_response;
+        return $resp;//$recaptcha_response;
 }
 
 /**

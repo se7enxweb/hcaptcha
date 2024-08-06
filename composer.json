@@ -1,14 +1,20 @@
 {
-    "name": "brookinsconsulting/recaptcha",
-    "description": "eZ Publish Legacy extension which provides a simple recaptcha solution. Great for smart developers!",
+    "name": "se7enxweb/recaptcha",
+    "description": "eZ Publish Legacy extension which provides a simple recaptcha solution for user registration and any forms. Great for smart developers!",
     "type": "ezpublish-legacy-extension",
-    "keywords": [ "eZ Publish", "eZ Publish Legacy", "eZ Publish Platform", "captcha", "recaptcha", "extension", "datatype" ],
-    "homepage": "https://github.com/brookinsconsulting/recaptcha",
+    "keywords": [ "eZ Publish", "eZ Publish Legacy", "eZ Publish Platform", "captcha", "recaptcha", "extension", "datatype", "forms", "user registration" ],
+    "homepage": "https://github.com/se7enxweb/recaptcha",
     "license": "GPL-2.0+",
     "authors": [
         {
+            "name" : "7x",
+            "homepage": "https://se7enx.com",
+            "email": "info@se7enx.com",
+            "role": "Developer"
+        },
+        {
             "name" : "Brookins Consulting",
-            "homepage": "http://brookinsconsulting.com",
+            "homepage": "https://brookinsconsulting.com",
             "email": "info@brookinsconsulting.com",
             "role": "Developer"
         },
@@ -21,7 +27,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5.0.0",
+        "php": ">=7.2.0",
         "ezsystems/ezpublish-legacy-installer": "*"
     },
     "extra": {

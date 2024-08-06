@@ -20,23 +20,24 @@
  */
 
 // Include the super class file
-include_once( "kernel/classes/ezdatatype.php" );
+//include_once( "kernel/classes/ezdatatype.php" );
 // Include reCAPTCHA lib
 include_once( "extension/recaptcha/classes/recaptchalib.php" );
 
 // Define the name of datatype string
-define( "EZ_DATATYPESTRING_RECAPTCHA", "recaptcha" );
+//define( "EZ_DATATYPESTRING_RECAPTCHA", "recaptcha" );
 
 
 class recaptchaType extends eZDataType
 {
+  const DATA_TYPE_STRING = 'recaptcha';
   /*!
    Construction of the class, note that the second parameter in eZDataType 
    is the actual name showed in the datatype dropdown list.
   */
-  function recaptchaType()
+  function __construct()
   {
-    $this->eZDataType( EZ_DATATYPESTRING_RECAPTCHA, "reCAPTCHA", 
+   parent::__construct( self::DATA_TYPE_STRING, ezpI18n::tr( 'kernel/classes/datatypes', 'reCAPTCHA', 'Datatype name' ),
                            array( 'serialize_supported' => false,
                                   'translation_allowed' => false ) );
   }
@@ -58,7 +59,7 @@ class recaptchaType extends eZDataType
 
     if ( $classAttribute->attribute( 'is_information_collector' ) or $this->reCAPTCHAValidate($http) )
       return eZInputValidator::STATE_ACCEPTED;
-    $objectAttribute->setValidationError(ezpI18n::tr( 'extension/recaptcha', "The reCAPTCHA wasn't entered correctly. Please try again."));
+    $objectAttribute->setValidationError('ReCaptcha-Eingabe fehlerhaft. Bitte erneut versuchen.');
     return eZInputValidator::STATE_INVALID;
   }
 
@@ -66,7 +67,7 @@ class recaptchaType extends eZDataType
   {
     if ($this->reCAPTCHAValidate($http))
       return eZInputValidator::STATE_ACCEPTED;
-    $objectAttribute->setValidationError(ezpI18n::tr( 'extension/recaptcha', "The reCAPTCHA wasn't entered correctly. Please try again."));
+    $objectAttribute->setValidationError('ReCaptcha-Eingabe fehlerhaft. Bitte erneut versuchen.');
     return eZInputValidator::STATE_INVALID;
   }
 
@@ -116,4 +117,4 @@ class recaptchaType extends eZDataType
   }
 
 }
-eZDataType::register( EZ_DATATYPESTRING_RECAPTCHA, "recaptchaType" );
+eZDataType::register( recaptchaType::DATA_TYPE_STRING, "recaptchaType" );
