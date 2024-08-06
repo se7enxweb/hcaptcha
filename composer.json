@@ -4,7 +4,7 @@
     "type": "ezpublish-legacy-extension",
     "keywords": [ "eZ Publish", "eZ Publish Legacy", "eZ Publish Platform", "captcha", "recaptcha", "extension", "datatype", "forms", "user registration" ],
     "homepage": "https://github.com/se7enxweb/recaptcha",
-    "license": "GPL-2.0+",
+    "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name" : "7x",
@@ -28,6 +28,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.2.0",
+        "google/recaptcha": "*",
         "ezsystems/ezpublish-legacy-installer": "*"
     },
     "extra": {
