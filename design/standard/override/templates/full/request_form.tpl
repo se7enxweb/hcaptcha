@@ -1,7 +1,5 @@
 {* Feedback form - Full view *}
 
-{def $siteKey="6Lf5z4cpAAAAAIph9m-QKGVfzEnruQ0owKz42NdG"}
-
 <div class="border-box">
 <div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
 <div class="border-ml"><div class="border-mr"><div class="border-mc float-break">
@@ -50,7 +48,7 @@
         <div class="content-action">
             <input type="hidden" class="defaultbutton" name="ActionCollectInformation" value="{"Send form"|i18n("design/ezwebin/full/feedback_form")}" onclick="onClick">
 
-            <button class="g-recaptcha btn btn-primary" style="width: 100%;" data-sitekey="{$siteKey}" data-action="submit">Submit</button>
+            <button class="g-recaptcha btn btn-primary" style="width: 100%;" data-sitekey="{ezini( 'Keys', 'PublicKey', 'recaptcha.ini' )}" data-action="submit">Submit</button>
             <input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
             <input type="hidden" name="ContentObjectID" value="{$node.object.id}" />
             <input type="hidden" name="ViewMode" value="full" />

@@ -1,7 +1,5 @@
 {* Feedback form - Full view *}
 
-{def $siteKey="6LdSeZMpAAAAAI0fGgAxZ_AfeB0fhFQgNzNBnSAW"}
-
 <!-- hero starts -->
 <section class="pb-12 bg-gradient-to-b from-emerald-50 to-orange-50">
   <div class="lg:container mx-auto px-4">
@@ -42,7 +40,7 @@
               <input type="hidden" name="ViewMode" value="full" />
           </div>
           <div class="col-span-2">
-            <button type="submit" class="g-recaptcha btn btn-primary group w-full flex items-center justify-center gap-4 border border-solid border-gray-300 bg-white text-base text-gray-900 font-medium py-2.5 px-4 lg:px-6 transition duration-300 hover:bg-gray-900 hover:text-white" style="width: 100%;" data-sitekey="{$siteKey}" data-action="submit">
+            <button type="submit" class="g-recaptcha btn btn-primary group w-full flex items-center justify-center gap-4 border border-solid border-gray-300 bg-white text-base text-gray-900 font-medium py-2.5 px-4 lg:px-6 transition duration-300 hover:bg-gray-900 hover:text-white" style="width: 100%;" data-sitekey="{ezini( 'Keys', 'PublicKey', 'recaptcha.ini' )}" data-action="submit">
               Send Message
               <i class="fa-solid fa-arrow-right-long duration-100 group-hover:-rotate-45"></i>
             </button>
