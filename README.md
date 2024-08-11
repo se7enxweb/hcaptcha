@@ -1,43 +1,43 @@
-## reCAPTCHA Solution for eZ Publish
+## hCaptcha Solution for eZ Publish
 
-reCAPTCHA is an extension that allows the integration of the reCAPTCHA
-anti-spam CAPTCHA service in your eZ publish content objects.  reCAPTCHA
-provides a reCAPTCHA datatype that can be used in editing content and
-information collection. reCAPTCHA provides both text and audio CAPTCHAs.
+hCaptcha is an extension that allows the integration of
+the hCaptcha anti-spam CAPTCHA service in your eZ publish content objects.
 
-## About reCAPTCHA
+hCaptcha provides a hCaptcha datatype that can be used in editing
+content and information collection.
+
+## About hCaptcha
+
 Over 60 million CAPTCHAs are solved every day by people around the world.
-reCAPTCHA channels this human effort into helping to digitize books from the
-Internet Archive. When you solve a reCAPTCHA, you help preserve literature by
-deciphering a word that was not readable by computers. 
 
-reCAPTCHA is a project of the School of Computer Science at Carnegie Mellon
-University.
+hCaptcha offers a comparable service as the Google reCAPTCHA solution.
 
-From: [https://developers.google.com/recaptcha/](https://developers.google.com/recaptcha/)
+From: [https://docs.hcaptcha.com/](https://docs.hcaptcha.com/)
+
+Migration: [https://docs.hcaptcha.com/switch](https://docs.hcaptcha.com/switch)
 
 ## Installation
 
-Follow these steps to add the reCAPTCHA module to your eZ publish installation:
+Follow these steps to add the hCaptcha module to your eZ publish installation:
 
-  1) Extract the archive into the /extension directory
+  1) Extract the archive into the extension/ directory
 
-  2) Edit site.ini.append in /settings/override. Add the following to the file:
+  2) Edit site.ini.append.php in settings/override/. Add the following to the file:
 
        [ExtensionSettings]
-       ActiveExtensions[]=recaptcha
+       ActiveExtensions[]=hcaptcha
 
      If you already have the [ExtensionSettings] block, just add the second line.
 
-  3) Visit [https://www.google.com/recaptcha/admin](https://www.google.com/recaptcha/admin) to signup and get your own API keys
+  3) Visit [https://dashboard.hcaptcha.com/signup](https://dashboard.hcaptcha.com/signup) and [https://dashboard.hcaptcha.com/sites](https://dashboard.hcaptcha.com/sites) to signup and get your own website API keys
 
-  4) Edit extension/settings/recaptcha.ini.append.php and add your API keys
+  4) Edit extension/settings/hcaptcha.ini.append.php and add your API keys
 
   5) Clear Cache
 
 ## Usage
 
-To use, simply add a reCAPTCHA attribute to your content class.  
+To use, simply add a hCaptcha attribute to your content class.  
 
 ## License
 
@@ -52,7 +52,11 @@ The "GNU General Public License" (GPL) is available at
 
 ## About
 
-reCAPTCHA provides a reCAPTCHA eZ publish datatype that can be used in user registartion, editing content and information collection.
+hCaptcha provides a hCaptcha eZ publish datatype that can be used in user registartion, editing content and information collection.
+
+[https://github.com/se7enxweb/hcaptcha](https://github.com/se7enxweb/hcaptcha "https://github.com/se7enxweb/hcaptcha")
+
+This solution is based on an original creation by Bruce Morrison.
 
 [https://github.com/se7enxweb/recaptcha](https://github.com/se7enxweb/recaptcha "https://github.com/se7enxweb/recaptcha")
 

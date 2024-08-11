@@ -1,6 +1,6 @@
 <?php
 /**
- * reCAPTCHA extension for eZ Publish
+ * hcaptcha extension for eZ Publish
  * Written by Bruce Morrison <bruce@stuffandcontent.com>
  * Copyright (C) 2008. Bruce Morrison.  All rights reserved.
  * http://www.stuffandcontent.com
@@ -21,23 +21,23 @@
 
 // Include the super class file
 //include_once( "kernel/classes/ezdatatype.php" );
-// Include reCAPTCHA lib
-include_once( "extension/recaptcha/classes/recaptchalib.php" );
+// Include hcaptcha lib
+include_once( "extension/hcaptcha/classes/hcaptchalib.php" );
 
 // Define the name of datatype string
-//define( "EZ_DATATYPESTRING_RECAPTCHA", "recaptcha" );
+//define( "EZ_DATATYPESTRING_HCAPTCHA", "hcaptcha" );
 
 
-class recaptchaType extends eZDataType
+class hcaptchaType extends eZDataType
 {
-  const DATA_TYPE_STRING = 'recaptcha';
+  const DATA_TYPE_STRING = 'hcaptcha';
   /*!
    Construction of the class, note that the second parameter in eZDataType 
    is the actual name showed in the datatype dropdown list.
   */
   function __construct()
   {
-   parent::__construct( self::DATA_TYPE_STRING, ezpI18n::tr( 'kernel/classes/datatypes', 'reCAPTCHA', 'Datatype name' ),
+   parent::__construct( self::DATA_TYPE_STRING, ezpI18n::tr( 'kernel/classes/datatypes', 'hCaptcha', 'Datatype name' ),
                            array( 'serialize_supported' => false,
                                   'translation_allowed' => false ) );
   }
@@ -51,23 +51,23 @@ class recaptchaType extends eZDataType
   {
     $classAttribute = $objectAttribute->contentClassAttribute();
 
-    $ini = eZINI::instance( 'recaptcha.ini' );
+    $ini = eZINI::instance( 'hcaptcha.ini' );
     $newOjbectsOnly = $ini->variable( 'PublishSettings', 'NewObjectsOnly' ) == 'true';
 
     if ( $newOjbectsOnly && $objectAttribute->attribute( 'object' )->attribute( 'status' ) )
        return eZInputValidator::STATE_ACCEPTED;
 
-    if ( $classAttribute->attribute( 'is_information_collector' ) or $this->reCAPTCHAValidate($http) )
+    if ( $classAttribute->attribute( 'is_information_collector' ) or $this->hcaptchaValidate($http) )
       return eZInputValidator::STATE_ACCEPTED;
-    $objectAttribute->setValidationError('ReCaptcha-Eingabe fehlerhaft. Bitte erneut versuchen.');
+    $objectAttribute->setValidationError('Hcaptcha-Eingabe fehlerhaft. Bitte erneut versuchen.');
     return eZInputValidator::STATE_INVALID;
   }
 
   function validateCollectionAttributeHTTPInput( $http, $base, $objectAttribute )
   {
-    if ($this->reCAPTCHAValidate($http))
+    if ($this->hcaptchaValidate($http))
       return eZInputValidator::STATE_ACCEPTED;
-    $objectAttribute->setValidationError('ReCaptcha-Eingabe fehlerhaft. Bitte erneut versuchen.');
+    $objectAttribute->setValidationError('Hcaptcha-Eingabe fehlerhaft. Bitte erneut versuchen.');
     return eZInputValidator::STATE_INVALID;
   }
 
@@ -86,18 +86,19 @@ class recaptchaType extends eZDataType
     return false;
   }
 
-  static function reCAPTCHAValidate( $http )
+  static function hcaptchaValidate( $http )
   {
     // check if the current user is able to bypass filling in the captcha and
     // return true without checking if so
     $currentUser = eZUser::currentUser();
-    $accessAllowed = $currentUser->hasAccessTo( 'recaptcha', 'bypass_captcha' );
+    $accessAllowed = $currentUser->hasAccessTo( 'hcaptcha', 'bypass_captcha' );
     if ($accessAllowed["accessWord"] == 'yes')
       return true;
 
-    $ini = eZINI::instance( 'recaptcha.ini' );
+    $ini = eZINI::instance( 'hcaptcha.ini' );
     // If PrivateKey is an array try and find a match for the current host
     $privatekey = $ini->variable( 'Keys', 'PrivateKey' );
+
     if ( is_array($privatekey) )
     {
       $hostname = eZSys::hostname();
@@ -108,13 +109,14 @@ class recaptchaType extends eZDataType
         $privatekey = array_shift($privatekey);
     }
 
-    $recaptcha_challenge_field = $http->postVariable('recaptcha_challenge_field');
-    $recaptcha_response_field = $http->postVariable('g-recaptcha-response');
+    $hcaptcha_challenge_field = $http->postVariable('hcaptcha_challenge_field');
+    $hcaptcha_response_field = $http->postVariable('h-hcaptcha-response');
 
-    $recaptcha_response = recaptcha_check_answer( $privatekey, $_SERVER['REMOTE_ADDR'], $recaptcha_challenge_field, $_POST['g-recaptcha-response'] );
+    $hcaptchaLibrary = new hCaptchaLibrary();
+    $hcaptcha_response = $hcaptchaLibrary::check_answer( $privatekey, $_SERVER['REMOTE_ADDR'], $hcaptcha_challenge_field, $_POST['g-hcaptcha-response'] );
 
-    return $recaptcha_response->is_valid;
+    return $hcaptcha_response->success;
   }
 
 }
-eZDataType::register( recaptchaType::DATA_TYPE_STRING, "recaptchaType" );
+eZDataType::register( hcaptchaType::DATA_TYPE_STRING, "hcaptchaType" );

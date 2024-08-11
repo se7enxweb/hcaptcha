@@ -1,8 +1,8 @@
 <?php /* #?ini charset="utf-8"?
 
 [ModuleSettings]
-ExtensionRepositories[]=recaptcha
+ExtensionRepositories[]=hcaptcha
 
-ModuleList[]=recaptcha
+ModuleList[]=hcaptcha
 
 */ ?>

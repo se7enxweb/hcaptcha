@@ -1,9 +1,9 @@
 <?php
 /**
- * reCAPTCHA extension for eZ Publish
- * Written by Bruce Morrison <bruce@stuffandcontent.com>
+ * hCaptcha extension for eZ Publish
+ * Written by 7x <info@se7enx.com>
+ * Based on works by: Bruce Morrison <bruce@stuffandcontent.com>
  * Copyright (C) 2008. Bruce Morrison.  All rights reserved.
- * http://www.stuffandcontent.com
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,21 +19,17 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-class recaptchaInfo
+class hcaptchaInfo
 {
     static function info()
     {
         return array(
-            'Name' => "reCAPTCHA eZ Publish Integration",
-            'Version' => "1.4",
-            'Author' => "<a href='http://www.stuffandcontent.com'>Bruce Morrison</a>",
+            'Name' => "hCaptcha extension for eZ Publish",
+            'Version' => "1.0",
+            'Author' => "<a href='https://se7enx.com'>7x</a>",
             'Maintainer' => "<a href='https://se7enx.com'>7x</a>",
             'Copyright' => "Copyright (C) 1999 - 2024 7x and 2008 - 2011 Bruce Morrison",
             'License' => "GNU General Public License v2.0",
-            'Includes the following third-party software' => array( 'Name' => 'PHP Library for reCAPTCHA',
-                                                                    'Version' => '1.3',
-                                                                    'License' => 'GPL - Mike Crawford &  Ben Maurer 2007',
-                                                                    'For more information' => 'https://github.com/google/recaptcha' )
         );
     }
 }
