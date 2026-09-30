@@ -1,6 +1,6 @@
 <?php
 /**
- * hCaptcha extension for eZ Publish
+ * hCaptcha extension for Exponential
  * Written by 7x <info@se7enx.com>
  * Based on works by: Bruce Morrison <bruce@stuffandcontent.com>
  * Copyright (C) 2008. Bruce Morrison.  All rights reserved.
