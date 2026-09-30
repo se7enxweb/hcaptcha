@@ -24,7 +24,7 @@ class hcaptchaInfo
     static function info()
     {
         return array(
-            'Name' => "hCaptcha extension for eZ Publish",
+            'Name' => "hCaptcha extension for Exponential",
             'Version' => "1.0",
             'Author' => "<a href='https://se7enx.com'>7x</a>",
             'Maintainer' => "<a href='https://se7enx.com'>7x</a>",
