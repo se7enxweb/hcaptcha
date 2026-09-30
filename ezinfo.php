@@ -25,7 +25,7 @@ class hcaptchaInfo
     {
         return array(
             'Name' => "hCaptcha extension for Exponential",
-            'Version' => "1.0",
+            'Version' => "1.1",
             'Author' => "<a href='https://se7enx.com'>7x</a>",
             'Maintainer' => "<a href='https://se7enx.com'>7x</a>",
             'Copyright' => "Copyright (C) 1999 - 2024 7x and 2008 - 2011 Bruce Morrison",
