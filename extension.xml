@@ -2,7 +2,7 @@
 <software>
     <metadata>
         <name>hCaptcha extension for Exponential</name>
-        <version>1.1</version>
+        <version>1.2</version>
         <copyright>Copyright (C) 1999 - 2026 7x and 2008 - 2011 Bruce Morrison</copyright>
         <license>GNU General Public License v2.0 (or any later version)</license>
         <info_url>https://github.com/se7enxweb/hcaptcha</info_url>
