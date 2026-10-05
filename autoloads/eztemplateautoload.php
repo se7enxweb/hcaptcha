@@ -7,4 +7,3 @@ $eZTemplateOperatorArray[] = array(
 );
 
 ?>
-
