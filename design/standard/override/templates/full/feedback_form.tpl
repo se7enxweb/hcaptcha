@@ -32,7 +32,7 @@
             {attribute_view_gui attribute=$node.data_map.message css_class="appearance-none w-full border border-solid border-gray-300 py-2.5 px-4 text-gray-900 bg-white placeholder:text-gray-400 outline-none transition-all duration-300 focus-visible:border-orange-500 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-300 resize-none" placeholder="Message*"}
           </div>
           <div class="col-span-2">
-            <input type="hidden" class="defaultbutton" name="ActionCollectInformation" value="{"Send Message"|i18n("design/ezwebin/full/feedback_form")}" onclick="onClick">
+            <input type="hidden" class="defaultbutton" name="ActionCollectInformation" value="{"Send Message"|i18n("design/ezwebin/full/feedback_form")}">
 
               <input type="hidden" class="hidden" name="ActionCollectInformation" value="{"Send Message"|i18n("design/ezwebin/full/feedback_form")}" />
               <input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
@@ -62,18 +62,5 @@
   </div>
 </section>
 <!-- hero ends -->
-<script>
-        {literal}
-                document.addEventListener("DOMContentLoaded", (event) => {
-                        const submitButtons = Array.from(document.querySelectorAll('[data-action="submit"]'));
-
-                        submitButtons.forEach((btn) => {
-                                btn.addEventListener('click', () => {
-                                        const form = btn.closest('form');
-
-                                        form.submit();
-                                });
-                        });
-                });
-        {/literal}
-</script>
+{* the Send button submits its form: hcaptcha_form.js (no inline code) *}
+{ezscript( array( 'hcaptcha_form.js' ) )}

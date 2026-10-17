@@ -46,7 +46,7 @@
         </div>
 
         <div class="content-action">
-            <input type="hidden" class="defaultbutton" name="ActionCollectInformation" value="{"Send form"|i18n("design/ezwebin/full/feedback_form")}" onclick="onClick">
+            <input type="hidden" class="defaultbutton" name="ActionCollectInformation" value="{"Send form"|i18n("design/ezwebin/full/feedback_form")}">
 
             <button class="g-recaptcha btn btn-primary" style="width: 100%;" data-sitekey="{ezini( 'Keys', 'PublicKey', 'recaptcha.ini' )}" data-action="submit">Submit</button>
             <input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
@@ -63,18 +63,5 @@
 <div class="border-bl"><div class="border-br"><div class="border-bc"></div></div></div>
 </div>
 
-<script>
-        {literal}
-                document.addEventListener("DOMContentLoaded", (event) => {
-                        const submitButtons = Array.from(document.querySelectorAll('[data-action="submit"]'));
-
-                        submitButtons.forEach((btn) => {
-                                btn.addEventListener('click', () => {
-                                        const form = btn.closest('form');
-
-                                        form.submit();
-                                });
-                        });
-                });
-        {/literal}
-</script>
+{* the Send button submits its form: hcaptcha_form.js (no inline code) *}
+{ezscript( array( 'hcaptcha_form.js' ) )}
