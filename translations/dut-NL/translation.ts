@@ -7,7 +7,7 @@
         <location filename="recaptchatype.php" line="55"/>
         <location filename="recaptchatype.php" line="63"/>
         <source>The reCAPTCHA wasn&apos;t entered correctly. Please try again.</source>
-        <translation>De ingetypte woorden zijn onjuist. Probeer het opnieuw.</translation>
+        <translation>De reCAPTCHA is niet goed ingevoerd. Probeer het opnieuw.</translation>
     </message>
 </context>
 </TS>
