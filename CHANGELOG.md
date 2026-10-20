@@ -1,3 +1,6 @@
+# v1.5 2026/10/19
+Translations in Croatian, Czech, Danish, Dutch, Italian, Norwegian, Polish, Brazilian Portuguese, Swedish and Turkish.
+
 # v1.4 2026/10/17
 The feedback and request form templates run without inline code (a Content Security Policy without 'unsafe-inline'): the Send button's script is design/standard/javascript/hcaptcha_form.js, and an empty onclick attribute is removed. The template autoload file prints nothing when it is included.
 
