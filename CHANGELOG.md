@@ -1,3 +1,6 @@
+# v1.6 2026/10/20
+Updated Polish and Dutch translations.
+
 # v1.5 2026/10/19
 Translations in Croatian, Czech, Danish, Dutch, Italian, Norwegian, Polish, Brazilian Portuguese, Swedish and Turkish.
 
