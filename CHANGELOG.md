@@ -1,3 +1,6 @@
+# v1.7 2026/10/29
+Updated: One copyright notice, Exponential Foundation and 7x.
+
 # v1.6 2026/10/20
 Updated Polish and Dutch translations.
 
