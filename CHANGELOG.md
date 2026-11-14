@@ -1,3 +1,6 @@
+# v1.8 2026/11/14
+Pull request #3 (Marco-JAC) merged: Mailhide (`hcaptchalib::recaptcha_mailhide_html()`) escapes with `htmlentities( ..., ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401 )`, the default of PHP 8.1 and later, so it escapes the same on PHP 8.0 (which used `ENT_COMPAT | ENT_HTML401`: a single quote stayed as it is inside the single-quoted `href` and `onclick`, invalid UTF-8 gave an empty string). The output on PHP 8.1 and later does not change. No escaping call without flags is left in the extension; `php -l` passes on PHP 8.0 and 8.5.
+
 # v1.7 2026/10/29
 Updated: One copyright notice, Exponential Foundation and 7x.
 
