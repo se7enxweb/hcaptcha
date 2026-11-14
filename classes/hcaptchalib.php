@@ -275,8 +275,8 @@ public static function recaptcha_mailhide_html($pubkey, $privatekey, $email) {
         $emailparts = _recaptcha_mailhide_email_parts ($email);
         $url = recaptcha_mailhide_url ($pubkey, $privatekey, $email);
         
-        return htmlentities($emailparts[0]) . "<a href='" . htmlentities ($url) .
-                "' onclick=\"window.open('" . htmlentities ($url) . "', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;\" title=\"Reveal this e-mail address\">...</a>@" . htmlentities ($emailparts [1]);
+        return htmlentities($emailparts[0], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401) . "<a href='" . htmlentities ($url, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401) .
+                "' onclick=\"window.open('" . htmlentities ($url, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401) . "', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;\" title=\"Reveal this e-mail address\">...</a>@" . htmlentities ($emailparts [1], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401);
 
     }
 
